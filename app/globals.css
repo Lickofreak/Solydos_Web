@@ -1,35 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-display: Anton, Impact, 'Arial Narrow Bold', sans-serif;
-  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
-  --background: #efeae1;
-  --surface: #f7f3ec;
-  --surface-sunken: #e4ded2;
-  --text-primary: #161514;
-  --text-secondary: #4a4640;
-  --text-muted: #6b655b;
-  --border: #d4cdc0;
-  --border-strong: #857e72;
-  --primary: #161514;
-  --on-primary: #efeae1;
-  --signal: #2445c9;
-  --primary-hover: #2445c9;
-  --signal-soft: #dfe3f3;
-  --signal-on-stone: #9db0ff;
-  --stone-core: #1b1a19;
-  --rock-shadow: rgba(22, 21, 20, 0.22);
-  --link: #2445c9;
-  --danger: #b3261e;
-  --danger-soft: #f3dfd9;
-  --focus-ring: 0 0 0 2px #efeae1, 0 0 0 4px #2445c9;
-  --container-max: 1240px;
-  --container-pad: 2rem;
-  --hairline: 1px;
-  --bp-md: 768px;
-  --bp-lg: 1024px;
-  --duration: 240ms;
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -41,10 +12,40 @@
   --space-24: 96px;
   --radius-none: 0px;
   --radius-full: 9999px;
+  --container-max: 1240px;
+  --container-pad: 2rem;
+  --hairline: 1px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --duration: 240ms;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: Anton, Impact, 'Arial Narrow Bold', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --background: #efeae1;
+  --surface: #f7f3ec;
+  --surface-sunken: #e4ded2;
+  --text-primary: #161514;
+  --text-secondary: #4a4640;
+  --text-muted: #6b655b;
+  --border: #d4cdc0;
+  --border-strong: #857e72;
+  --primary: #161514;
+  --on-primary: #efeae1;
+  --signal: #2445c9;
+  --primary-hover: var(--signal);
+  --signal-soft: #dfe3f3;
+  --signal-on-stone: #9db0ff;
+  --stone-core: #1b1a19;
+  --rock-shadow: #16151438;
+  --link: var(--signal);
+  --danger: #b3261e;
+  --danger-soft: #f3dfd9;
+  --focus-ring: 0 0 0 2px #efeae1, 0 0 0 4px #2445c9;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --background: #121211;
     --surface: #1a1a18;
     --surface-sunken: #23221f;
@@ -172,6 +173,16 @@ body {
   stroke-dasharray: 0.6 2.4;
   stroke-linecap: round;
   stroke-width: 1.7;
+}
+
+.sd-mark-loop-1 {
+  stroke-dasharray: 0.5 2.0;
+  stroke-linecap: round;
+}
+
+.sd-mark-loop-2 {
+  stroke-dasharray: 0.4 1.6;
+  stroke-linecap: round;
 }
 
 .sd-mark-summit {
@@ -661,6 +672,52 @@ body {
   color: var(--text-primary);
 }
 
+.sd-hero-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.sd-hero-visual {
+  display: none;
+}
+
+.sd-rock-figure {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 260 / 502;
+}
+
+.sd-rock-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sd-rock-silhouette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+}
+
+.sd-rock-label {
+  position: absolute;
+  bottom: -24px;
+  right: 0;
+  margin: 0;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
 @media (min-width: 768px) {
   .sd-hero-title {
     font-size: 112px;
@@ -670,6 +727,14 @@ body {
 @media (min-width: 1024px) {
   .sd-hero {
     padding: var(--space-16) 0 var(--space-24);
+  }
+  .sd-hero-container {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+  .sd-hero-visual {
+    display: block;
   }
   .sd-hero-grid {
     grid-template-columns: minmax(0, 5fr) minmax(0, 6fr) 56px;

@@ -114,11 +114,33 @@ export default function Home() {
               </div>
             </div>
             <div className="sd-hero-visual">
+              <svg className="sd-hero-pattern" viewBox="0 0 400 600" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <pattern id="diag-lines" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <line x1="0" y1="0" x2="20" y2="20" stroke="var(--signal)" strokeWidth="0.8" opacity="0.15"/>
+                  </pattern>
+                </defs>
+                <rect width="400" height="600" fill="url(#diag-lines)"/>
+              </svg>
               <figure className="sd-rock-figure">
                 <img src={ROCK_SRC} alt="Roca de Solydos" className="sd-rock-image"/>
                 <RockSilhouette />
                 <figcaption className="sd-rock-label">[2026]</figcaption>
               </figure>
+              <div className="sd-hero-samples">
+                <div className="sd-sample">
+                  <div className="sd-sample-media" style={{background: 'linear-gradient(135deg, #2445c9 0%, #1a318f 100%)'}}></div>
+                  <div className="sd-sample-cap"><span>Muestra</span></div>
+                </div>
+                <div className="sd-sample">
+                  <div className="sd-sample-media" style={{background: 'var(--surface-sunken)'}}></div>
+                  <div className="sd-sample-cap"><span>Técnica</span></div>
+                </div>
+                <div className="sd-sample">
+                  <div className="sd-sample-media" style={{background: 'repeating-linear-gradient(45deg, #f7f3ec, #f7f3ec 10px, #e4ded2 10px, #e4ded2 20px)'}}></div>
+                  <div className="sd-sample-cap"><span>Patrón</span></div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -226,8 +248,19 @@ export default function Home() {
             <figure className="sd-media-frame">
               <div className="sd-demo-placeholder">
                 <svg width="100%" height="100%" viewBox="0 0 600 400" style={{background: 'var(--surface-sunken)'}}>
-                  <circle cx="300" cy="200" r="40" fill="var(--signal)" opacity="0.2"/>
-                  <text x="300" y="205" textAnchor="middle" fill="var(--text-muted)" fontSize="14">Demo vivo</text>
+                  <defs>
+                    <pattern id="demo-lines" x="0" y="0" width="15" height="15" patternUnits="userSpaceOnUse">
+                      <line x1="0" y1="0" x2="15" y2="15" stroke="var(--signal)" strokeWidth="1" opacity="0.2"/>
+                    </pattern>
+                  </defs>
+                  <rect width="600" height="400" fill="url(#demo-lines)"/>
+                  <image href={ROCK_SRC} x="200" y="80" width="200" height="200" opacity="0.8"/>
+                  <circle cx="300" cy="200" r="100" fill="none" stroke="var(--signal)" strokeWidth="1" opacity="0.1"/>
+                  <circle cx="300" cy="200" r="80" fill="none" stroke="var(--signal)" strokeWidth="0.8" opacity="0.15"/>
+                  <g opacity="0.4">
+                    <circle cx="300" cy="200" r="40" fill="var(--signal)"/>
+                    <path d="M300 160 L310 190 L280 190 Z" fill="var(--on-primary)"/>
+                  </g>
                 </svg>
               </div>
             </figure>
@@ -372,6 +405,98 @@ export default function Home() {
           max-width: 600px;
         }
 
+        .sd-hero-visual {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: var(--space-6);
+        }
+
+        .sd-hero-pattern {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          z-index: 0;
+        }
+
+        .sd-rock-figure {
+          position: relative;
+          z-index: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 0;
+        }
+
+        .sd-rock-image {
+          width: 100%;
+          max-width: 300px;
+          height: auto;
+          display: block;
+        }
+
+        .sd-rock-label {
+          font-size: 12px;
+          color: var(--text-muted);
+          margin-top: var(--space-3);
+          font-family: var(--font-mono);
+        }
+
+        .sd-rock-silhouette {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          max-width: 320px;
+          height: auto;
+          z-index: -1;
+        }
+
+        .sd-hero-samples {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(80px, 1fr));
+          gap: var(--space-3);
+          width: 100%;
+          max-width: 320px;
+          z-index: 1;
+        }
+
+        .sd-sample {
+          margin: 0;
+          padding: var(--space-2);
+          border: var(--hairline) solid var(--border-strong);
+          background: var(--surface);
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+
+        .sd-sample-media {
+          width: 100%;
+          aspect-ratio: 1;
+          overflow: hidden;
+        }
+
+        .sd-sample-cap {
+          display: flex;
+          justify-content: center;
+          gap: var(--space-1);
+          padding: 2px 0;
+          font-size: 9px;
+          color: var(--text-primary);
+          font-family: var(--font-mono);
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+        }
+
         .sd-hero-title {
           font-family: var(--font-display);
           font-size: 112px;
@@ -509,14 +634,21 @@ export default function Home() {
         }
 
         .sd-step-n {
-          display: inline-block;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 64px;
+          height: 64px;
           font-family: var(--font-display);
           font-size: 48px;
           line-height: 1;
           font-weight: 400;
           text-transform: uppercase;
-          color: var(--signal);
+          color: var(--on-primary);
+          background: var(--signal);
+          border-radius: var(--radius-none);
           margin-bottom: var(--space-4);
+          flex-shrink: 0;
         }
 
         .sd-step h3 {
@@ -634,9 +766,10 @@ export default function Home() {
           display: flex;
           flex-direction: column;
           gap: var(--space-6);
-          padding: var(--space-6);
+          padding: var(--space-8);
           border: var(--hairline) solid var(--border);
           background: var(--surface);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         .sd-form-success {

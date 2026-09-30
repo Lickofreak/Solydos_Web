@@ -147,17 +147,17 @@ export default function Home() {
 
         {/* Stats Strip */}
         <div className="sd-container">
-          <div className="sd-strip">
+          <div className="lp-strip">
             <span><span className="sd-annot sd-annot-row"><span style={{width: '6px', height: '6px', border: '1px solid var(--signal)'}}></span><span style={{color: 'var(--signal)', fontWeight: '600'}}>&lt; 1 s</span><span>Primera respuesta</span></span></span>
             <span><span className="sd-annot sd-annot-row"><span style={{width: '6px', height: '6px', border: '1px solid var(--signal)'}}></span><span style={{color: 'var(--signal)', fontWeight: '600'}}>24 / 7</span><span>Disponibilidad</span></span></span>
             <span><span className="sd-annot sd-annot-row"><span style={{width: '6px', height: '6px', border: '1px solid var(--signal)'}}></span><span style={{color: 'var(--signal)', fontWeight: '600'}}>10 min</span><span>Configuración</span></span></span>
           </div>
         </div>
 
-        <hr className="sd-rule"/>
+        <hr className="lp-rule"/>
 
         {/* Capacidades */}
-        <section id="producto" className="sd-section">
+        <section id="producto" className="lp-section">
           <div className="sd-container">
             <div className="sd-section-head">
               <p className="sd-kicker">Sección 02 / Capacidades</p>
@@ -204,31 +204,31 @@ export default function Home() {
           </div>
         </section>
 
-        <hr className="sd-rule"/>
+        <hr className="lp-rule"/>
 
         {/* Cómo funciona */}
-        <section id="proceso" className="sd-section">
+        <section id="proceso" className="lp-section">
           <div className="sd-container">
             <div className="sd-section-head">
               <p className="sd-kicker">Sección 03 / Cómo funciona</p>
               <h2 className="sd-section-title">Tres capas</h2>
               <p className="sd-section-subtitle">De tu número de WhatsApp a un agente que resuelve, en el orden en que lo configuras.</p>
             </div>
-            <ol className="sd-steps">
-              <li className="sd-step">
-                <span className="sd-step-n">1</span>
+            <ol className="lp-steps">
+              <li className="lp-step">
+                <span className="lp-step-n">1</span>
                 <h3>Conecta tu número</h3>
                 <p>Vincula tu WhatsApp Business escaneando un código. Tu número sigue siendo tuyo.</p>
                 <span className="sd-annot sd-annot-row"><span style={{width: '6px', height: '6px', border: '1px solid var(--signal)'}}></span>≈ 2 min</span>
               </li>
-              <li className="sd-step">
-                <span className="sd-step-n">2</span>
+              <li className="lp-step">
+                <span className="lp-step-n">2</span>
                 <h3>Carga lo que sabes</h3>
                 <p>Sube manuales, PDFs o la URL de tu centro de ayuda. Solydos arma su memoria con eso.</p>
                 <span className="sd-annot sd-annot-row"><span style={{width: '6px', height: '6px', border: '1px solid var(--signal)'}}></span>Ilimitadas</span>
               </li>
-              <li className="sd-step">
-                <span className="sd-step-n">3</span>
+              <li className="lp-step">
+                <span className="lp-step-n">3</span>
                 <h3>Déjalo atender</h3>
                 <p>Responde, resuelve y escala a tu equipo lo que necesita una persona, con todo el contexto.</p>
                 <span className="sd-annot sd-annot-row"><span style={{width: '6px', height: '6px', border: '1px solid var(--signal)'}}></span>24 / 7</span>
@@ -238,7 +238,7 @@ export default function Home() {
         </section>
 
         {/* Demo */}
-        <section id="demo" className="sd-section">
+        <section id="demo" className="lp-section">
           <div className="sd-container">
             <div className="sd-section-head">
               <p className="sd-kicker">Sección 04 / Demo</p>
@@ -267,69 +267,71 @@ export default function Home() {
           </div>
         </section>
 
-        <hr className="sd-rule"/>
+        <hr className="lp-rule"/>
 
         {/* Registro de campo */}
-        <section className="sd-section">
-          <div className="sd-container">
+        <section className="lp-section">
+          <div className="sd-container lp-log-wrap">
             <div className="sd-section-head">
               <p className="sd-kicker">Sección 05 / Registro de campo</p>
               <h2 className="sd-section-title">Una noche cualquiera</h2>
               <p className="sd-section-subtitle">Así se ve una conversación que Solydos resuelve sola y una que le pasa a tu equipo. Ejemplo ilustrativo.</p>
             </div>
-            <figure className="sd-log">
-              <div className="sd-log-top">
-                <span>Registro 0412 · WhatsApp</span>
-                <span>Ferretería El Tornillo</span>
-              </div>
-              <div className="sd-msg sd-msg-client">
-                <time>23:47</time>
-                <div>
-                  <div className="sd-msg-who">Cliente</div>
-                  <p>¿El taladro DX-20 sirve para concreto? Lo necesito mañana temprano.</p>
+            <figure className="lp-log">
+              <div className="lp-log-inner">
+                <div className="lp-log-top">
+                  <span>Registro 0412 · WhatsApp</span>
+                  <span>Ferretería El Tornillo</span>
                 </div>
-              </div>
-              <div className="sd-msg sd-msg-agent">
-                <time>23:47</time>
-                <div>
-                  <div className="sd-msg-who">Solydos</div>
-                  <p>Sí, en modo percusión y con broca para concreto de 6 a 10 mm. Tienes 3 unidades en la sede Norte, que abre a las 7:00. ¿Te lo aparto?</p>
+                <div className="lp-msg lp-msg-client">
+                  <time>23:47</time>
+                  <div>
+                    <div className="lp-msg-who">Cliente</div>
+                    <p>¿El taladro DX-20 sirve para concreto? Lo necesito mañana temprano.</p>
+                  </div>
                 </div>
-              </div>
-              <div className="sd-msg sd-msg-client">
-                <time>23:48</time>
-                <div>
-                  <div className="sd-msg-who">Cliente</div>
-                  <p>Sí, apártamelo. Y quiero factura a nombre de mi empresa.</p>
+                <div className="lp-msg lp-msg-agent">
+                  <time>23:47</time>
+                  <div>
+                    <div className="lp-msg-who">Solydos</div>
+                    <p>Sí, en modo percusión y con broca para concreto de 6 a 10 mm. Tienes 3 unidades en la sede Norte, que abre a las 7:00. ¿Te lo aparto?</p>
+                  </div>
                 </div>
-              </div>
-              <div className="sd-msg sd-msg-agent">
-                <time>23:48</time>
-                <div>
-                  <div className="sd-msg-who">Solydos</div>
-                  <p>Listo, quedó apartado a tu nombre hasta las 12:00. Para la factura electrónica le paso tus datos a facturación; te escriben apenas abran.</p>
+                <div className="lp-msg lp-msg-client">
+                  <time>23:48</time>
+                  <div>
+                    <div className="lp-msg-who">Cliente</div>
+                    <p>Sí, apártamelo. Y quiero factura a nombre de mi empresa.</p>
+                  </div>
                 </div>
+                <div className="lp-msg lp-msg-agent">
+                  <time>23:48</time>
+                  <div>
+                    <div className="lp-msg-who">Solydos</div>
+                    <p>Listo, quedó apartado a tu nombre hasta las 12:00. Para la factura electrónica le paso tus datos a facturación; te escriben apenas abran.</p>
+                  </div>
+                </div>
+                <div className="lp-msg"><span className="lp-msg-note">Escalado a Facturación · con contexto</span></div>
               </div>
-              <div className="sd-msg"><span className="sd-msg-note">Escalado a Facturación · con contexto</span></div>
             </figure>
           </div>
         </section>
 
-        <hr className="sd-rule"/>
+        <hr className="lp-rule"/>
 
         {/* CTA Principal */}
-        <section className="sd-section">
-          <div className="sd-container sd-cta">
+        <section className="lp-section">
+          <div className="sd-container lp-cta">
             <div>
               <p className="sd-kicker" style={{marginBottom: 'var(--space-6)'}}>Sección 06 / Empieza</p>
-              <h2 className="sd-cta-title">Pon tu negocio <span>en el mapa.</span></h2>
-              <div className="sd-cta-meta">
+              <h2 className="lp-cta-title">Pon tu negocio <span>en el mapa.</span></h2>
+              <div className="lp-cta-meta">
                 <span className="sd-annot sd-annot-row"><span style={{width: '6px', height: '6px', border: '1px solid var(--signal)'}}></span><span style={{color: 'var(--signal)', fontWeight: '600'}}>10 min</span><span>Configuración guiada</span></span>
                 <span className="sd-annot sd-annot-row"><span style={{width: '6px', height: '6px', border: '1px solid var(--signal)'}}></span><span style={{color: 'var(--signal)', fontWeight: '600'}}>1 número</span><span>WhatsApp Business</span></span>
               </div>
             </div>
-            <form className="sd-form" onSubmit={handleFormSubmit} noValidate>
-              {submitted && <div className="sd-form-success">¡Gracias! Nos pondremos en contacto pronto.</div>}
+            <form className="lp-form" onSubmit={handleFormSubmit} noValidate>
+              {submitted && <p className="lp-done">Solicitud registrada · te escribimos pronto</p>}
               <div className="sd-field">
                 <label htmlFor="empresa" className="sd-label"><span className="sd-label-index">01</span>Empresa</label>
                 <input id="empresa" type="text" name="empresa" placeholder="Ferretería El Tornillo" value={formData.empresa} onChange={handleFormChange} className="sd-input" required/>
@@ -343,8 +345,8 @@ export default function Home() {
                 <input id="whatsapp" type="text" name="whatsapp" placeholder="+57 300 000 0000" value={formData.whatsapp} onChange={handleFormChange} className="sd-input"/>
                 <p className="sd-field-hint">Con indicativo de país, sin espacios.</p>
               </div>
-              <div className="sd-form-foot">
-                <p className="sd-form-note">Formulario de ejemplo</p>
+              <div className="lp-form-foot">
+                <p className="lp-form-note">Formulario de ejemplo</p>
                 <button type="submit" className="sd-btn sd-btn-primary">Empieza ya <Icon name="arrow"/></button>
               </div>
             </form>
@@ -355,7 +357,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="sd-footer">
         <div className="sd-container">
-          <div className="sd-footer-content">
+          <div className="sd-footer-top">
             <div className="sd-footer-brand">
               <a href="#" className="sd-logo">
                 <svg className="sd-mark" width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">

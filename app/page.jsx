@@ -359,6 +359,7 @@ export default function Home() {
             <div className="sd-footer-brand">
               <a href="#" className="sd-logo">
                 <svg className="sd-mark" width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+                  {MARK_LOOPS.map((d, i) => <path key={`loop-${i}`} d={d} className={`sd-mark-loop sd-mark-loop-${i}`} />)}
                   <circle cx="17.6" cy="14.9" r="1.9" className="sd-mark-summit"></circle>
                 </svg>
                 <span className="sd-logo-name" aria-label="Solydos">Solydos</span>
@@ -743,6 +744,12 @@ export default function Home() {
           align-items: start;
         }
 
+        @media (max-width: 1024px) {
+          .sd-cta {
+            grid-template-columns: 1fr;
+          }
+        }
+
         .sd-cta-title {
           font-family: var(--font-display);
           font-size: 88px;
@@ -813,6 +820,11 @@ export default function Home() {
         .sd-input:focus {
           outline: none;
           box-shadow: var(--focus-ring);
+        }
+
+        .sd-input:invalid:not(:placeholder-shown) {
+          border-color: #d32f2f;
+          box-shadow: inset 0 0 0 1px rgba(211, 47, 47, 0.1);
         }
 
         .sd-field-hint {
